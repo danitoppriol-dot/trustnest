@@ -4,14 +4,22 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
+import HomePage from "./pages/Home";
+import PropertyListing from "./pages/PropertyListing";
+import RoommateMatching from "./pages/RoommateMatching";
+import Messaging from "./pages/Messaging";
+import UserProfile from "./pages/UserProfile";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
+      <Route path="" component={HomePage} />
+      <Route path="/properties" component={PropertyListing} />
+      <Route path="/matching" component={RoommateMatching} />
+      <Route path="/messages" component={Messaging} />
+      <Route path="/profile" component={UserProfile} />
+      <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>

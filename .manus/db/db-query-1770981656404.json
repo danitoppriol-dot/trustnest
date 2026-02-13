@@ -1,0 +1,31 @@
+{
+  "query": "SHOW TABLES;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 243EY1v7muNHJ6s.root --database LziDonM7hdaoGsnopYFUQR --execute SHOW TABLES;",
+  "rows": [
+    {
+      "Tables_in_LziDonM7hdaoGsnopYFUQR": "__drizzle_migrations"
+    },
+    {
+      "Tables_in_LziDonM7hdaoGsnopYFUQR": "auditLogs"
+    },
+    {
+      "Tables_in_LziDonM7hdaoGsnopYFUQR": "conversations"
+    },
+    {
+      "Tables_in_LziDonM7hdaoGsnopYFUQR": "documents"
+    },
+    {
+      "Tables_in_LziDonM7hdaoGsnopYFUQR": "matches"
+    },
+    {
+      "Tables_in_LziDonM7hdaoGsnopYFUQR": "matchingProfiles"
+    },
+    {
+      "Tables_in_LziDonM7hdaoGsnopYFUQR": "messages"
+    }
+  ],
+  "messages": [],
+  "stdout": "Tables_in_LziDonM7hdaoGsnopYFUQR\n__drizzle_migrations\nauditLogs\nconversations\ndocuments\nmatches\nmatchingProfiles\nmessages\n",
+  "stderr": "",
+  "execution_time_ms": 373
+}

@@ -1,0 +1,9 @@
+{
+  "query": "SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS auditLogs; DROP TABLE IF EXISTS messages; DROP TABLE IF EXISTS conversations; DROP TABLE IF EXISTS matches; DROP TABLE IF EXISTS matchingProfiles; DROP TABLE IF EXISTS documents; DROP TABLE IF EXISTS verifications; DROP TABLE IF EXISTS properties; DROP TABLE IF EXISTS userProfiles; DROP TABLE IF EXISTS users; SET FOREIGN_KEY_CHECKS=1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 243EY1v7muNHJ6s.root --database LziDonM7hdaoGsnopYFUQR --execute SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS auditLogs; DROP TABLE IF EXISTS messages; DROP TABLE IF EXISTS conversations; DROP TABLE IF EXISTS matches; DROP TABLE IF EXISTS matchingProfiles; DROP TABLE IF EXISTS documents; DROP TABLE IF EXISTS verifications; DROP TABLE IF EXISTS properties; DROP TABLE IF EXISTS userProfiles; DROP TABLE IF EXISTS users; SET FOREIGN_KEY_CHECKS=1;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1658
+}

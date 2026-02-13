@@ -1,0 +1,82 @@
+# TrustNest MVP - Phase 1 TODO
+
+## Core Infrastructure
+- [x] Database schema design (users, profiles, properties, messages, verifications, documents)
+- [x] tRPC routers structure planning
+- [x] Storage S3 integration for documents
+- [ ] Real-time messaging setup (WebSocket/Socket.io)
+- [ ] Environment variables and secrets configuration
+
+## Authentication & User Management
+- [x] Manus OAuth integration and session management
+- [x] User role toggle (tenant/landlord)
+- [x] User profile creation and editing
+- [x] Profile fields: age, budget range, work type, sleep schedule, cleanliness level, smoking/drinking, pets
+
+## Identity Verification System
+- [x] Government ID upload and storage
+- [x] Selfie + liveness detection integration
+- [x] Phone number verification (OTP)
+- [x] Email verification
+- [x] Trust badge system (Verified/Not Verified binary)
+- [x] Verification status tracking in user profiles
+- [x] Document encryption and GDPR-compliant storage
+
+## Property Listing System
+- [x] Property model and database schema
+- [x] Property creation form (title, description, price, location, photos)
+- [x] Photo upload and storage
+- [ ] Property listing page with public view
+- [ ] Search functionality
+- [ ] Basic filters (price range, location, amenities)
+- [ ] Property detail view
+
+## Roommate Matching Engine
+- [x] Matching algorithm with weighted scoring
+- [x] Compatibility calculation (budget, sleep schedule, cleanliness, smoking/drinking, pets)
+- [ ] Match percentage display
+- [ ] Match explanation/reasoning display
+- [ ] User preference questionnaire
+
+## Messaging System
+- [x] Message model and database schema
+- [x] One-to-one messaging between users
+- [ ] Conversation list view
+- [ ] Real-time message delivery
+- [x] Message history
+- [ ] Unread message indicators
+
+## Admin Dashboard
+- [x] Admin role and access control
+- [ ] Document review interface
+- [x] Verification approval/rejection workflow
+- [ ] User management and moderation
+- [ ] Verification statistics and overview
+
+## UI & Design
+- [x] Nordic design system (colors, typography, spacing)
+- [x] Landing page with value proposition
+- [x] Sign up / Log in pages (via Manus OAuth)
+- [x] Verification dashboard
+- [x] Property listing pages
+- [x] Matching interface
+- [x] Messaging UI
+- [x] User profile pages
+- [x] Admin dashboard UI (approval/rejection)
+- [x] Mobile responsive design
+
+## Testing & Deployment
+- [x] Unit tests for matching algorithm
+- [ ] Integration tests for verification flow
+- [ ] E2E tests for critical user journeys
+- [x] Security review (GDPR compliance, encryption)
+- [ ] Performance optimization
+- [ ] Final checkpoint and deployment readiness
+
+## Phase 2 Preparation (Architecture Only)
+- [ ] Design scalability hooks for trust score complexity
+- [ ] Plan registry API integration points
+- [ ] Structure for AI group optimization
+- [ ] Conflict prediction framework
+- [ ] Fraud detection placeholder
+- [ ] Budget pooling calculator structure
