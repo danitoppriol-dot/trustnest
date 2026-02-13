@@ -56,11 +56,9 @@ export default function HomePage() {
               TrustNest verifica identità di landlord e tenant, calcola compatibilità con AI e crea comunità di coliving affidabili. Zero scam, massima fiducia.
             </p>
             <div className="flex gap-4">
-              <a href={getLoginUrl()} className="inline-block">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  Inizia ora
-                </Button>
-              </a>
+              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+                <a href={getLoginUrl()}>Inizia ora</a>
+              </Button>
               <Button variant="outline" size="lg">
                 Scopri di più
               </Button>
@@ -179,9 +177,11 @@ export default function HomePage() {
           <p className="text-xl mb-8 opacity-90">
             Unisciti a migliaia di persone che hanno trovato la loro comunità ideale su TrustNest
           </p>
-          <Button asChild size="lg" variant="secondary">
-            <a href={getLoginUrl()}>Inizia gratuitamente</a>
-          </Button>
+          <a href={getLoginUrl()} className="inline-block">
+            <Button size="lg" variant="secondary">
+              Inizia gratuitamente
+            </Button>
+          </a>
         </div>
       </section>
 
