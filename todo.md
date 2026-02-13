@@ -64,6 +64,9 @@
 - [x] User profile pages
 - [x] Admin dashboard UI (approval/rejection)
 - [x] Mobile responsive design
+- [x] Multi-language support (i18n) - English, Italian, French, German, Spanish, Swedish, Portuguese, Dutch
+- [x] Language switcher in navigation
+- [x] Persistent language preference in user profile
 
 ## Testing & Deployment
 - [x] Unit tests for matching algorithm

@@ -4,7 +4,8 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import HomePage from "./pages/Home";
+import { LanguageProvider } from "./contexts/LanguageContext";
+import Home from "./pages/Home";
 import PropertyListing from "./pages/PropertyListing";
 import RoommateMatching from "./pages/RoommateMatching";
 import Messaging from "./pages/Messaging";
@@ -14,7 +15,7 @@ function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
-      <Route path="" component={HomePage} />
+      <Route path="/" component={Home} />
       <Route path="/properties" component={PropertyListing} />
       <Route path="/matching" component={RoommateMatching} />
       <Route path="/messages" component={Messaging} />
@@ -34,15 +35,17 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
+      <LanguageProvider>
+        <ThemeProvider
+          defaultTheme="light"
+          // switchable
+        >
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </ThemeProvider>
+      </LanguageProvider>
     </ErrorBoundary>
   );
 }
