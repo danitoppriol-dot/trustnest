@@ -34,7 +34,7 @@ export default function PropertyListing() {
         }
 
         // Room count filter
-        if (minRooms && property.roomCount && property.roomCount < parseInt(minRooms)) {
+        if (minRooms && minRooms !== "0" && property.roomCount && property.roomCount < parseInt(minRooms)) {
           return false;
         }
 
@@ -101,12 +101,12 @@ export default function PropertyListing() {
             {/* Min Rooms */}
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">Camere minime</label>
-              <Select value={minRooms} onValueChange={setMinRooms}>
+              <Select value={minRooms || "0"} onValueChange={setMinRooms}>
                 <SelectTrigger>
                   <SelectValue placeholder="Qualsiasi" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">Qualsiasi</SelectItem>
+                  <SelectItem value="0">Qualsiasi</SelectItem>
                   <SelectItem value="1">1+ camera</SelectItem>
                   <SelectItem value="2">2+ camere</SelectItem>
                   <SelectItem value="3">3+ camere</SelectItem>
