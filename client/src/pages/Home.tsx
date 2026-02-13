@@ -37,9 +37,9 @@ export default function HomePage() {
                 </Button>
               </>
             ) : (
-                <a href={getLoginUrl()} className="inline-block">
-                <Button>Accedi</Button>
-              </a>
+              <Button asChild>
+                <a href={getLoginUrl()}>Accedi</a>
+              </Button>
             )}
           </div>
         </div>
@@ -56,9 +56,11 @@ export default function HomePage() {
               TrustNest verifica identità di landlord e tenant, calcola compatibilità con AI e crea comunità di coliving affidabili. Zero scam, massima fiducia.
             </p>
             <div className="flex gap-4">
-              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-                <a href={getLoginUrl()}>Inizia ora</a>
-              </Button>
+              <a href={getLoginUrl()} className="inline-block">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                  Inizia ora
+                </Button>
+              </a>
               <Button variant="outline" size="lg">
                 Scopri di più
               </Button>
