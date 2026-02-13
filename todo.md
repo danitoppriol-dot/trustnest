@@ -9,9 +9,10 @@
 
 ## Authentication & User Management
 - [x] Manus OAuth integration and session management
-- [x] User role toggle (tenant/landlord)
+- [ ] User role toggle (tenant/landlord) - UI implementation in registration/profile
 - [x] User profile creation and editing
 - [x] Profile fields: age, budget range, work type, sleep schedule, cleanliness level, smoking/drinking, pets
+- [ ] Role-specific profile fields (landlord: company info, bank details; tenant: employment info)
 
 ## Identity Verification System
 - [x] Government ID upload and storage
@@ -21,6 +22,10 @@
 - [x] Trust badge system (Verified/Not Verified binary)
 - [x] Verification status tracking in user profiles
 - [x] Document encryption and GDPR-compliant storage
+- [ ] Verification Dashboard UI - step-by-step verification flow
+- [ ] Landlord-specific verification (property deed, company registration)
+- [ ] Tenant-specific verification (employment letter, income proof)
+- [ ] Admin verification review interface
 
 ## Property Listing System
 - [x] Property model and database schema

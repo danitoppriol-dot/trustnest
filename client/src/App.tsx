@@ -10,6 +10,7 @@ import PropertyListing from "./pages/PropertyListing";
 import RoommateMatching from "./pages/RoommateMatching";
 import Messaging from "./pages/Messaging";
 import UserProfile from "./pages/UserProfile";
+import VerificationDashboard from "./pages/VerificationDashboard";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/matching" component={RoommateMatching} />
       <Route path="/messages" component={Messaging} />
       <Route path="/profile" component={UserProfile} />
+      <Route path="/verify" component={VerificationDashboard} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

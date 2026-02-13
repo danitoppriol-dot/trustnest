@@ -30,6 +30,9 @@ export default function HomePage() {
           <div className="flex items-center gap-4">
             {isAuthenticated ? (
               <>
+                <Link href="/verify">
+                  <a className="text-slate-600 hover:text-slate-900 font-medium">Verify</a>
+                </Link>
                 <Link href="/properties">
                   <a className="text-slate-600 hover:text-slate-900 font-medium">{t('nav.properties', language)}</a>
                 </Link>
