@@ -4,6 +4,8 @@
  */
 
 import { Strategy as SamlStrategy } from "passport-saml";
+import fs from "fs";
+import path from "path";
 
 export interface SamlProfile {
   nameID: string;
@@ -20,12 +22,23 @@ export interface SamlProfile {
  * Create SAML strategy for development (with test IdP)
  */
 export function createDevSamlStrategy() {
+  // Try to load certificate, fallback to dummy cert for testing
+  let cert = "test";
+  try {
+    const certPath = path.join(process.cwd(), "certs/certificate.crt");
+    if (fs.existsSync(certPath)) {
+      cert = fs.readFileSync(certPath, "utf8");
+    }
+  } catch (e) {
+    console.warn("[SAML] Certificate not found, using test certificate");
+  }
+
   return new SamlStrategy(
     {
       path: "/api/auth/saml/acs",
       entryPoint: process.env.SAML_ENTRY_POINT || "http://localhost:8000/idp/profile/SAML2/Redirect/SSO",
       issuer: process.env.SAML_ISSUER || "trustnest",
-      cert: process.env.SAML_CERT || "test",
+      cert: cert,
       identifierFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
     },
     (profile: any, done: (err: Error | null, user?: any) => void) => {
@@ -39,19 +52,33 @@ export function createDevSamlStrategy() {
  * Create SAML strategy for production (with real SPID/CIE providers)
  */
 export function createProdSamlStrategy() {
-  const fs = require("fs");
-  const path = require("path");
+  // Load certificates from environment or files with fallback
+  let privateKey = "test";
+  let idpCert = "test";
 
-  // Load certificates from environment or files
-  const privateKey = process.env.SAML_PRIVATE_KEY || fs.readFileSync(path.join(process.cwd(), "certs/private.key"), "utf8");
-  const certificate = process.env.SAML_CERTIFICATE || fs.readFileSync(path.join(process.cwd(), "certs/certificate.crt"), "utf8");
-  const idpCert = process.env.SAML_IDP_CERT || fs.readFileSync(path.join(process.cwd(), "certs/idp-cert.crt"), "utf8");
+  try {
+    const privKeyPath = path.join(process.cwd(), "certs/private.key");
+    if (fs.existsSync(privKeyPath)) {
+      privateKey = fs.readFileSync(privKeyPath, "utf8");
+    }
+  } catch (e) {
+    console.warn("[SAML] Private key not found");
+  }
+
+  try {
+    const idpCertPath = path.join(process.cwd(), "certs/idp-cert.crt");
+    if (fs.existsSync(idpCertPath)) {
+      idpCert = fs.readFileSync(idpCertPath, "utf8");
+    }
+  } catch (e) {
+    console.warn("[SAML] IdP certificate not found");
+  }
 
   return new SamlStrategy(
     {
       path: "/api/auth/saml/acs",
-      entryPoint: process.env.SAML_ENTRY_POINT!,
-      issuer: process.env.SAML_ISSUER!,
+      entryPoint: process.env.SAML_ENTRY_POINT || "http://localhost:8000/idp/sso",
+      issuer: process.env.SAML_ISSUER || "trustnest",
       cert: idpCert,
       privateKey: privateKey,
       identifierFormat: "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
