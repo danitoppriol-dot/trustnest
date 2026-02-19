@@ -5,6 +5,14 @@ import { CheckCircle2, Lock, Globe, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
 
+function safeUseLanguage() {
+  try {
+    return useLanguage();
+  } catch {
+    return { language: "en" };
+  }
+}
+
 interface eIDProvider {
   id: string;
   name: string;
@@ -80,7 +88,7 @@ const eIDProviders: eIDProvider[] = [
 ];
 
 export default function eIDVerification() {
-  const { language } = useLanguage();
+  const { language } = safeUseLanguage();
   const [selectedProvider, setSelectedProvider] = useState<string | null>(null);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
 
