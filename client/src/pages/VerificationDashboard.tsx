@@ -6,7 +6,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { CheckCircle2, Clock, AlertCircle, Upload, Shield, FileText, Camera, Phone, Mail } from "lucide-react";
+import { CheckCircle2, Clock, AlertCircle, Upload, Shield, FileText, Camera, Phone, Mail, Globe } from "lucide-react";
+import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -47,6 +48,29 @@ export default function VerificationDashboard() {
       </div>
 
       <div className="container mx-auto px-4 py-8">
+        {/* eID Quick Verification */}
+        <Card className="mb-8 border-2 border-green-200 bg-green-50">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Globe className="w-6 h-6 text-green-600" />
+              Quick Verification with eID
+            </CardTitle>
+            <CardDescription>Verify your identity instantly using your national electronic ID</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-600 mb-4">
+              Use SPID, CIE, BankID, or any EU eID system to complete your verification in seconds. Your data is protected by government-grade encryption.
+            </p>
+            <Link href="/verify/eid">
+              <a className="inline-block">
+                <Button className="bg-green-600 hover:bg-green-700">
+                  Verify with eID
+                </Button>
+              </a>
+            </Link>
+          </CardContent>
+        </Card>
+
         {/* Role Selection */}
         <Card className="mb-8">
           <CardHeader>

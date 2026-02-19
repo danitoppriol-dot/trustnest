@@ -22,7 +22,10 @@
 - [x] Trust badge system (Verified/Not Verified binary)
 - [x] Verification status tracking in user profiles
 - [x] Document encryption and GDPR-compliant storage
-- [ ] Verification Dashboard UI - step-by-step verification flow
+- [x] Verification Dashboard UI - step-by-step verification flow
+- [x] eID integration (SPID, CIE, eIDAS) - mock implementation
+- [x] Automatic verification completion via eID login
+- [x] Support for multiple national eID providers
 - [ ] Landlord-specific verification (property deed, company registration)
 - [ ] Tenant-specific verification (employment letter, income proof)
 - [ ] Admin verification review interface
