@@ -18,6 +18,13 @@ export default function HomePage() {
     // Language context not available, use default
   }
 
+  const scrollToHowItWorks = () => {
+    const element = document.getElementById('how-it-works');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -73,7 +80,7 @@ export default function HomePage() {
               <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
                 <a href={getLoginUrl()}>{t('hero.cta.start', language)}</a>
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" onClick={scrollToHowItWorks}>
                 {t('hero.cta.learn', language)}
               </Button>
             </div>
@@ -130,7 +137,7 @@ export default function HomePage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20">
+      <section id="how-it-works" className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center">{t('howitworks.title', language)}</h2>
 

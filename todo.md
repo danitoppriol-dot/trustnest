@@ -72,6 +72,7 @@
 - [x] Multi-language support (i18n) - English, Italian, French, German, Spanish, Swedish, Portuguese, Dutch
 - [x] Language switcher in navigation
 - [x] Persistent language preference in user profile
+- [x] "Learn More" button functionality - scroll to How It Works section
 
 ## Testing & Deployment
 - [x] Unit tests for matching algorithm
