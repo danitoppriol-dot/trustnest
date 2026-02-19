@@ -56,10 +56,15 @@
 
 ## Admin Dashboard
 - [x] Admin role and access control
-- [ ] Document review interface
+- [x] Admin dashboard layout with sidebar navigation
+- [x] Document review interface with image viewer
 - [x] Verification approval/rejection workflow
-- [ ] User management and moderation
-- [ ] Verification statistics and overview
+- [x] Verification queue with filters and sorting
+- [x] User management and moderation
+- [x] Verification statistics and overview
+- [x] Audit logging and activity history
+- [x] Trust badge management
+- [x] Fraud detection and risk flags
 
 ## UI & Design
 - [x] Nordic design system (colors, typography, spacing)

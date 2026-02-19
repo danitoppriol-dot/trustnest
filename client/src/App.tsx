@@ -12,6 +12,7 @@ import Messaging from "./pages/Messaging";
 import UserProfile from "./pages/UserProfile";
 import VerificationDashboard from "./pages/VerificationDashboard";
 import eIDVerification from "./pages/eIDVerification";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/profile" component={UserProfile} />
       <Route path="/verify" component={VerificationDashboard} />
       <Route path="/verify/eid" component={eIDVerification} />
+      <Route path="/admin" component={AdminDashboard} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

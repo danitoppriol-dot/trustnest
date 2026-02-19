@@ -1,6 +1,7 @@
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
+import { adminRouter } from "./routers/admin";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import {
@@ -31,6 +32,7 @@ import { storagePut, storageGet } from "./storage";
 
 export const appRouter = router({
   system: systemRouter,
+  admin: adminRouter,
 
   // ============================================================================
   // AUTHENTICATION
@@ -447,43 +449,7 @@ export const appRouter = router({
       }),
   }),
 
-  // ============================================================================
-  // ADMIN DASHBOARD
-  // ============================================================================
 
-  admin: router({
-    // Approve verification
-    approveVerification: protectedProcedure
-      .input(z.object({ userId: z.number() }))
-      .mutation(async ({ ctx, input }) => {
-        // Check if user is admin
-        if (ctx.user.role !== "admin") {
-          throw new Error("Unauthorized");
-        }
-
-        const verification = await approveVerification(input.userId, ctx.user.id);
-        await createAuditLog(ctx.user.id, "APPROVE_VERIFICATION", input.userId, "user", input.userId);
-
-        return verification;
-      }),
-
-    // Reject verification
-    rejectVerification: protectedProcedure
-      .input(z.object({ userId: z.number(), reason: z.string() }))
-      .mutation(async ({ ctx, input }) => {
-        // Check if user is admin
-        if (ctx.user.role !== "admin") {
-          throw new Error("Unauthorized");
-        }
-
-        const verification = await rejectVerification(input.userId, ctx.user.id, input.reason);
-        await createAuditLog(ctx.user.id, "REJECT_VERIFICATION", input.userId, "user", input.userId, {
-          reason: input.reason,
-        });
-
-        return verification;
-      }),
-  }),
 });
 
 export type AppRouter = typeof appRouter;
