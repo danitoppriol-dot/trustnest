@@ -31,6 +31,18 @@ router.get("/metadata", (req: Request, res: Response) => {
 });
 
 /**
+ * GET /auth/saml/login
+ * Initiate SAML authentication (redirect from frontend)
+ */
+router.get(
+  "/login",
+  passport.authenticate("saml", {
+    failureRedirect: "/",
+    failureMessage: true,
+  })
+);
+
+/**
  * POST /auth/saml/login
  * Initiate SAML authentication
  */
