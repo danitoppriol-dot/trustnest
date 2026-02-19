@@ -38,19 +38,19 @@ export default function HomePage() {
             {isAuthenticated ? (
               <>
                 <Link href="/verify">
-                  <a className="text-slate-600 hover:text-slate-900 font-medium">Verify</a>
+                  <span className="text-slate-600 hover:text-slate-900 font-medium cursor-pointer">Verify</span>
                 </Link>
                 <Link href="/properties">
-                  <a className="text-slate-600 hover:text-slate-900 font-medium">{t('nav.properties', language)}</a>
+                  <span className="text-slate-600 hover:text-slate-900 font-medium cursor-pointer">{t('nav.properties', language)}</span>
                 </Link>
                 <Link href="/matching">
-                  <a className="text-slate-600 hover:text-slate-900 font-medium">{t('nav.matching', language)}</a>
+                  <span className="text-slate-600 hover:text-slate-900 font-medium cursor-pointer">{t('nav.matching', language)}</span>
                 </Link>
                 <Link href="/messages">
-                  <a className="text-slate-600 hover:text-slate-900 font-medium">{t('nav.messages', language)}</a>
+                  <span className="text-slate-600 hover:text-slate-900 font-medium cursor-pointer">{t('nav.messages', language)}</span>
                 </Link>
                 <Link href="/profile">
-                  <a className="text-slate-600 hover:text-slate-900 font-medium">{t('nav.profile', language)}</a>
+                  <span className="text-slate-600 hover:text-slate-900 font-medium cursor-pointer">{t('nav.profile', language)}</span>
                 </Link>
                 <Button variant="outline" size="sm" onClick={logout}>
                   {t('nav.logout', language)}
@@ -198,11 +198,11 @@ export default function HomePage() {
           <p className="text-xl mb-8 opacity-90">
             {t('cta.subtitle', language)}
           </p>
-          <a href={getLoginUrl()} className="inline-block">
-            <Button size="lg" variant="secondary">
+          <Button asChild size="lg" variant="secondary">
+            <a href={getLoginUrl()}>
               {t('cta.button', language)}
-            </Button>
-          </a>
+            </a>
+          </Button>
         </div>
       </section>
 
