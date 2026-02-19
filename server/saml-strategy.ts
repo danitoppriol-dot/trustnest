@@ -25,7 +25,7 @@ export function createDevSamlStrategy() {
       path: "/api/auth/saml/acs",
       entryPoint: process.env.SAML_ENTRY_POINT || "http://localhost:8000/idp/profile/SAML2/Redirect/SSO",
       issuer: process.env.SAML_ISSUER || "trustnest",
-      cert: process.env.SAML_CERT || "",
+      cert: process.env.SAML_CERT || "test",
       identifierFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
     },
     (profile: any, done: (err: Error | null, user?: any) => void) => {

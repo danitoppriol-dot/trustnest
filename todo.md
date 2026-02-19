@@ -26,11 +26,14 @@
 - [x] eID integration (SPID, CIE, eIDAS) - mock implementation
 - [x] Automatic verification completion via eID login
 - [x] Support for multiple national eID providers
-- [ ] SPID/CIE real integration with SAML 2.0 (Passport-SAML)
+- [ ] SPID/CIE real integration with SAML 2.0 (Passport-SAML) - IN PROGRESS
+- [ ] Generate SAML certificates (private key + public cert)
 - [ ] SPID metadata configuration and endpoints
 - [ ] SAML Assertion Consumer Service (ACS) endpoint
+- [ ] SAML login and logout routes
 - [ ] Development/Production environment switching
 - [ ] Test IdP configuration for development
+- [ ] Connect SAML profile to user verification
 - [ ] AgID registration documentation
 - [ ] Landlord-specific verification (property deed, company registration)
 - [ ] Tenant-specific verification (employment letter, income proof)

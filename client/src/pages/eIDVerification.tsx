@@ -96,14 +96,18 @@ export default function eIDVerification() {
     setIsAuthenticating(true);
     setSelectedProvider(providerId);
 
-    // Simulate eID authentication flow
-    // In production, this would redirect to the actual eID provider
-    setTimeout(() => {
-      console.log(`Authenticating with ${providerId}`);
-      // After successful authentication, the user would be redirected back
-      // and marked as verified
-      setIsAuthenticating(false);
-    }, 2000);
+    // For SPID and CIE, redirect to SAML login
+    if (providerId === "spid" || providerId === "cie") {
+      // Redirect to SAML login endpoint
+      window.location.href = "/api/auth/saml/login";
+    } else {
+      // For other providers, show coming soon message
+      setTimeout(() => {
+        alert(`${providerId} integration coming soon!`);
+        setIsAuthenticating(false);
+        setSelectedProvider(null);
+      }, 1000);
+    }
   };
 
   return (
