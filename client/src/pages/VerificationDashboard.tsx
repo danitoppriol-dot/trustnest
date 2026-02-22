@@ -10,6 +10,7 @@ import { CheckCircle2, Clock, AlertCircle, Upload, Shield, FileText, Camera, Pho
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
+import DocumentUpload from "@/components/DocumentUpload";
 
 export default function VerificationDashboard() {
   const { user } = useAuth();
@@ -289,16 +290,23 @@ function VerificationStepContent({ step, userType, onComplete }: VerificationSte
             Verify Code
           </Button>
         </div>
-      ) : step === 2 || step === 4 ? (
+      ) : step === 2 ? (
         <div className="space-y-4">
-          <div className="border-2 border-dashed border-slate-300 rounded-lg p-8 text-center hover:border-slate-400 transition-colors cursor-pointer">
-            <Upload className="w-8 h-8 text-slate-400 mx-auto mb-2" />
-            <p className="text-sm font-medium text-slate-900">Click to upload document</p>
-            <p className="text-xs text-slate-500 mt-1">PNG, JPG, PDF up to 10MB</p>
-          </div>
-          <Button onClick={() => setIsVerified(true)} className="w-full">
-            Upload & Continue
-          </Button>
+          <DocumentUpload
+            documentType="government_id"
+            label="Government ID"
+            description="Upload a clear photo of your government-issued ID"
+            onSuccess={() => setIsVerified(true)}
+          />
+        </div>
+      ) : step === 4 ? (
+        <div className="space-y-4">
+          <DocumentUpload
+            documentType="property_photo"
+            label="Property Deed"
+            description="Upload property deed or ownership certificate"
+            onSuccess={() => setIsVerified(true)}
+          />
         </div>
       ) : step === 3 ? (
         <div className="space-y-4">

@@ -5,7 +5,7 @@
 - [x] tRPC routers structure planning
 - [x] Storage S3 integration for documents
 - [ ] Real-time messaging setup (WebSocket/Socket.io)
-- [ ] Environment variables and secrets configuration
+- [x] Environment variables and secrets configuration
 
 ## Authentication & User Management
 - [x] Manus OAuth integration and session management
@@ -91,8 +91,42 @@
 - [x] Persistent language preference in user profile
 - [x] "Learn More" button functionality - scroll to How It Works section
 
+## Document Upload & S3 Storage
+- [x] S3 storage integration with encryption
+- [x] File upload endpoints (ID, selfie, property photos)
+- [x] File validation (format, size, MIME type)
+- [ ] Image compression and optimization
+- [ ] Secure file deletion and GDPR compliance
+- [x] Document storage in database with S3 URLs
+- [ ] Admin document viewer/preview
+
+## Property Creation Form
+- [ ] Property creation form UI
+- [ ] Photo upload with drag-and-drop
+- [ ] Amenities selection
+- [ ] Location/map integration
+- [ ] Form validation
+- [ ] S3 photo storage
+- [ ] Database persistence
+
+## Admin Queue Database Integration
+- [x] Query pending verifications from database
+- [x] Approval/rejection mutations
+- [x] Verification status updates
+- [x] Trust badge assignment
+- [x] Audit logging
+- [ ] Real-time queue updates
+
+## Mock Data Population
+- [ ] Sample properties (50-100)
+- [ ] Sample users (100-200)
+- [ ] Sample matches
+- [ ] Sample verifications
+
 ## Testing & Deployment
 - [x] Unit tests for matching algorithm
+- [x] Unit tests for DocumentUpload component
+- [x] Unit tests for admin router procedures
 - [ ] Integration tests for verification flow
 - [ ] E2E tests for critical user journeys
 - [x] Security review (GDPR compliance, encryption)

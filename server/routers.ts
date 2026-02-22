@@ -2,6 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { adminRouter } from "./routers/admin";
+import { documentsRouter } from "./routers/documents";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import {
@@ -33,6 +34,7 @@ import { storagePut, storageGet } from "./storage";
 export const appRouter = router({
   system: systemRouter,
   admin: adminRouter,
+  documents: documentsRouter,
 
   // ============================================================================
   // AUTHENTICATION
